@@ -1202,6 +1202,7 @@ void Llama<T>::setOutputTensors(std::unordered_map<std::string, Tensor>*       o
         gatherTreeParam param;
         param.beams                = transposed_output_ids_buf_;
         param.max_sequence_lengths = sequence_lengths;
+        param.sequence_lengths_for_output = sequence_lengths;
         // add sequence_length 1 here because the sequence_length of time step t is t - 1
         param.max_sequence_length_final_step = 1;
         param.max_time                       = max_output_seq_len;
